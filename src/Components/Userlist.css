@@ -1,0 +1,12 @@
+table{
+    margin: 6px auto;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  .actions{
+    display: flex;
+    gap: 10px;
+  }
