@@ -1,4 +1,3 @@
-// src/LocalStorage.js
 
 const USERS_KEY = 'users';
 
@@ -8,7 +7,7 @@ export const getUsers = () => {
 };
 export const addUser = (user) => {
   const users = getUsers();
-  user.status = 'Active'; // Set status to 'Active' for new users
+  user.status = 'Not blocked'; 
   users.push(user);
   localStorage.setItem(USERS_KEY, JSON.stringify(users));
 };
