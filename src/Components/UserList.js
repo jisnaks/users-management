@@ -13,7 +13,7 @@ const UserList = () => {
 
   const handleBlockToggle = (email) => {
     const updatedUsers = users.map(user =>
-      user.email === email ? { ...user, status: user.status === 'Active' ? 'Blocked' : 'Active' } : user
+      user.email === email ? { ...user, status: user.status === 'Not blocked' ? 'Blocked' : 'Not blocked' } : user
     );
     localStorage.setItem('users', JSON.stringify(updatedUsers));
     setUsers(updatedUsers);
@@ -73,7 +73,7 @@ const UserList = () => {
               <td>{user.status}</td>
               <td className='actions'>
                 <button onClick={() => handleBlockToggle(user.email)}>
-                  {user.status === 'Active' ? 'Block' : 'Unblock'}
+                  {user.status === 'Not blocked' ? 'Block' : 'Unblock'}
                 </button>
                 <button onClick={() => handleDelete(user.email)}>Remove</button>
                 {editEmail === user.email ? (
@@ -82,7 +82,7 @@ const UserList = () => {
                   <button onClick={() => handleEdit(user.email)} disabled={user.status === 'Blocked'}>Edit</button>
                 )}
               </td>
-              <td>{user.previousLogins.join(', ')}</td>
+              <td>{user.previousLogins.join(',')}</td>
             </tr>
           ))}
         </tbody>
